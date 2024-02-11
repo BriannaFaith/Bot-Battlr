@@ -24,13 +24,17 @@ function App() {
       setArmy([...army, bot]);
     }
   }
-
+  function releaseBot(removeBot){
+    const updatedArmy = army.filter(bot => bot.id !== removeBot.id);
+    setArmy(updatedArmy);
+  }
   return (
     <>
     <h1>Welcome to my Bot Collection</h1>
-    <YourBotArmy bots={bots} army={army} />
+    <YourBotArmy army={army} releaseBot={releaseBot} />
+    <h2>All Available Bots</h2>
     <BotCollection bots={bots} enlistBot={enlistBot}/>
-    
+
     </>
   )
 }

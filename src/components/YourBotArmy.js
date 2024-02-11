@@ -1,6 +1,7 @@
 import React from "react";
 
 function YourBotArmy({ army, releaseBot, deleteBot }) {
+    
   return (
     <div className="your-bot-army">
       <h2>My Bot Army</h2>
@@ -16,7 +17,7 @@ function YourBotArmy({ army, releaseBot, deleteBot }) {
               <p>Armor: {bot.armor}</p>
               <button className="release-button"onClick={() => releaseBot(bot)}>Release</button>
               <br></br>
-              <button className="delete-button" onClick={() => deleteBot(bot)}>X</button>
+              <button className="delete-button" onClick={() => deleteBot(bot.id)}>X</button>
             </div>
 
           </div>

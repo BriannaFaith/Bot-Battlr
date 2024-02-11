@@ -4,6 +4,10 @@ import "../App.css"
 function Bot({ bot, enlistBot }) {
   const { id, name, health, damage, armor, bot_class, catchphrase, avatar_url } = bot;
 
+  function handleEnlistClick (){
+    enlistBot(bot)
+  }
+
   return (
     <div className="bot-card">
       <img className="bot-avatar" src={avatar_url} alt={name} />
@@ -15,7 +19,7 @@ function Bot({ bot, enlistBot }) {
         <p>Armor: {armor}</p>
         <p>Catchphrase: {catchphrase}</p>
       </div>
-      <button onClick={() =>enlistBot(bot)}>Enlist</button>
+      <button onClick={handleEnlistClick}>Enlist</button>
     </div>
   );
 }

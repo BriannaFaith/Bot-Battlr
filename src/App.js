@@ -15,15 +15,22 @@ function App() {
         }
         return response.json();
       })
-      .then(data => setBots(data))
+      .then(data => setBots(data.bots || data))
       .catch(error => console.error(error));
   }, []);
 
+  function enlistBot(bot) {
+    if (!army.find((b) => b.id === bot.id)) {
+      setArmy([...army, bot]);
+    }
+  }
 
   return (
     <>
     <h1>Welcome to my Bot Collection</h1>
-    <BotCollection bots={bots} />
+    <YourBotArmy bots={bots} army={army} />
+    <BotCollection bots={bots} enlistBot={enlistBot}/>
+    
     </>
   )
 }

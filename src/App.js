@@ -1,9 +1,11 @@
 import React,{ useState, useEffect} from 'react';
 import BotCollection from './components/BotCollection';
-import "./App.css"
+import "./App.css";
+import YourBotArmy from './components/YourBotArmy';
 
 function App() {
   const [bots, setBots] = useState([]);
+  const [army, setArmy] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/bots")

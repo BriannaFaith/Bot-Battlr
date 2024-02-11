@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css"
 
-function Bot({ bot }) {
+function Bot({ bot, enlistBot }) {
   const { id, name, health, damage, armor, bot_class, catchphrase, avatar_url } = bot;
 
   return (
@@ -15,7 +15,7 @@ function Bot({ bot }) {
         <p>Armor: {armor}</p>
         <p>Catchphrase: {catchphrase}</p>
       </div>
-      <button>Enlist</button>
+      <button onClick={() =>enlistBot(bot)}>Enlist</button>
     </div>
   );
 }

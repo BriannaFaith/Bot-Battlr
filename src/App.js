@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{ useState, useEffect} from 'react';
+import BotCollection from './components/BotCollection';
 
 function App() {
+  const [bots, setBots] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/bots")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Error fetching data ...");
+        }
+        return response.json();
+      })
+      .then(data => setBots(data))
+      .catch(error => console.error(error));
+  }, []);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <h1>Welcome to my BotCollection</h1>
+    <BotCollection bots={bots} />
+    </>
+  )
 }
 
 export default App;

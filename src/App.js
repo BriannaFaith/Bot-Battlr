@@ -25,8 +25,10 @@ function App() {
     })
     .then(response => {
       if (!response.ok) {
-        throw new Error('Error deleting bot')
+        throw new Error('Error deleting bot');
       }
+      const updatedBots = bots.filter(bot => bot.id !== botId);
+      setBots(updatedBots);
     })
 
   }
@@ -42,7 +44,7 @@ function App() {
   return (
     <>
     <h1>Welcome to my Bot Collection</h1>
-    <YourBotArmy army={army} releaseBot={releaseBot} />
+    <YourBotArmy army={army} releaseBot={releaseBot} deleteBot={deleteBot} />
     <h2>All Available Bots</h2>
     <BotCollection bots={bots} enlistBot={enlistBot}/>
 

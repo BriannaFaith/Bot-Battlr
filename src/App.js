@@ -19,6 +19,17 @@ function App() {
       .catch(error => console.error(error));
   }, []);
 
+  function deleteBot(botId){
+    fetch(`http://localhost:3000/bots/${botId}`,{
+      method: `DELETE`,
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error deleting bot')
+      }
+    })
+
+  }
   function enlistBot(bot) {
     if (!army.find((b) => b.id === bot.id)) {
       setArmy([...army, bot]);

@@ -14,7 +14,9 @@ function YourBotArmy({ army, releaseBot }) {
               <p>Health: {bot.health}</p>
               <p>Damage: {bot.damage}</p>
               <p>Armor: {bot.armor}</p>
-              <button onClick={() => releaseBot(bot)}>Release</button>
+              <button className="release-button"onClick={() => releaseBot(bot)}>Release</button>
+              <br></br>
+              <button className="delete-button" onClick={() => releaseBot(bot)}>X</button>
             </div>
 
           </div>

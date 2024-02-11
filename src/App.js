@@ -1,5 +1,6 @@
 import React,{ useState, useEffect} from 'react';
 import BotCollection from './components/BotCollection';
+import "./App.css"
 
 function App() {
   const [bots, setBots] = useState([]);
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <>
-    <h1>Welcome to my BotCollection</h1>
+    <h1>Welcome to my Bot Collection</h1>
     <BotCollection bots={bots} />
     </>
   )

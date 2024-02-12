@@ -1,7 +1,7 @@
 import React from "react";
 
 function YourBotArmy({ army, releaseBot, deleteBot }) {
-    
+
   return (
     <div className="your-bot-army">
       <h2>My Bot Army</h2>
